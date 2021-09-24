@@ -14,4 +14,4 @@ So there are two .env files. The one that is located in the root is the one that
 
 ### nginx folder
 
-Holds an example of a nginx.conf file with reverse-proxy that connects the frontend and backend. Links to tutorials which explain what you need to do to
+Holds an example of a nginx.conf file with reverse-proxy that connects the frontend and backend. Links to tutorials which explain what you need to do to add a domain and generate new ssl certs automatically
