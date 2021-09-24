@@ -1,0 +1,56 @@
+version: "3.8"
+services:
+  # frontend
+  frontend:
+    build:
+    # this means target the ./frontend folder Dockerfile
+      context: ./frontend
+      dockerfile: ./Dockerfile
+    container_name: frontend
+    image: frontend:tag
+    restart: always
+    depends_on:
+      - gofiber_server
+    links:
+      - gofiber_server
+    ports:
+      - "3000:3000"
+
+  # POSTGRES_DATABASE
+  db:
+    container_name: db
+    image: "postgres:latest"
+    restart: always
+    ports:
+      - ${HOST_PORT}:${HOST_PORT}
+    volumes:
+      - postgres-pgdata:${PGDATA}
+    expose:
+      - ${HOST_PORT}
+    env_file:
+      - .env
+
+  # GOFIBER_API
+  gofiber_server:
+    build:
+      context: ./fiber_server
+      dockerfile: ./Dockerfile
+    container_name: gofiber_server
+    image: gofiber_server:tag
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - ${GOLANG_PORT}:${GOLANG_PORT}
+    depends_on:
+      - db
+    links:
+      - db
+    expose:
+      - ${GOLANG_PORT}
+
+volumes:
+  postgres-pgdata:
+    driver: local
+    # define the name of the volume, so that it wouldn't change when the folder of the project changes
+    name: pgdata
