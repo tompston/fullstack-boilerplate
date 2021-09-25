@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fiber_server/router"
 	"fiber_server/settings"
 	"fmt"
 	"strconv"
@@ -24,10 +23,11 @@ func main() {
 	//// Enable cors + use the url from which the frontend makes API requests if needed
 	// app.Use(cors.New(cors.Config{
 	// 	// AllowOrigins: settings.Config("BASE_URL"),
-	// 	// AllowOrigins: "http://localhost:443",
 	// }))
 
-	router.Url(app) // use the routes that are defiend in the Url function
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("Howdy")
+	})
 
 	port, _ := strconv.Atoi(settings.Config("GOLANG_PORT")) // import the .env int
 
