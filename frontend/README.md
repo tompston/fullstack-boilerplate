@@ -11,3 +11,8 @@ Or just change the Dockerfile if your config is different
 ## Starting a new project with _Vite_
 
     npm init @vitejs/app
+
+## robots.txt
+
+Create robots.txt file in the ./public folder  
+link to a guide for more details   ->  http://www.robotstxt.org/robotstxt.html
