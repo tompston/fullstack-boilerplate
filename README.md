@@ -50,4 +50,4 @@ The current setup has 3 possible ways of running.
 
 
   ### Disclaimer
-  *Code and setup takes heavy inspiration from this [repo](https://github.com/karlkeefer/pngr/tree/master/react)* 
+  *Code and setup takes heavy inspiration from this [repo](https://github.com/karlkeefer/pngr)* 
