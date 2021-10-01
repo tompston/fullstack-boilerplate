@@ -29,6 +29,10 @@ func main() {
 		return c.SendString("Howdy")
 	})
 
+	app.Get("/api", func(c *fiber.Ctx) error {
+		return c.SendString("the endpoint for the api")
+	})
+
 	port, _ := strconv.Atoi(settings.Config("GOLANG_PORT")) // import the .env int
 
 	app.Listen(fmt.Sprintf("%s%d", ":", port)) // run the server

@@ -45,6 +45,11 @@
     docker-compose up -d --no-deps --build frontend
     docker-compose up -d
 
+    # example for updating the docker services if you make changes to individual containers
+    docker-compose -f docker-compose.local.yml up -d --no-deps --build db 
+    docker-compose -f docker-compose.local.yml up -d --no-deps --build frontend 
+    docker-compose -f docker-compose.local.yml up -d --no-deps --build nginx 
+
 ### cd into a docker container to check stuff
 
     docker exec -it <container_name> <entrypint>
@@ -63,4 +68,5 @@
     WORKDIR command in Dockerfile will create the dir if it doesn’t exist yet
 
     cd /usr/share/nginx/html        # directory that holds the dist folder
-    cd etc/nginx/nginx.conf         # directory that holds the nginx.conf file
+    cd /etc/nginx/nginx.conf         # directory that holds the nginx.conf file
+

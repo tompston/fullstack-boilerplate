@@ -16,7 +16,7 @@ These are the steps i took to set up and connect the domain name and nginx.
     sudo apt install python3-certbot-nginx  # install certbot
     cd /etc/nginx                           # cd into the nginx config
     sudo cp nginx.conf nginx.txt            # create a backup for the main nginx file
-    sudo nano nginx.conf                    # copy the stuff that is written in the current ./nginx.conf file
+    sudo nano nginx.conf                    # copy the stuff that is written in the current ./nginx.conf file to /etc/nginx/nginx.conf 
     sudo nginx -t                                           # test to check if the nginx is working fine + sytax errors
     sudo certbot --nginx -d YOUR_DOMAIN -d www.YOUR_DOMAIN  # generate ssl certs
     sudo cp nginx.conf nginx-cert-backup.txt                # backup the new generated nginx.conf file again

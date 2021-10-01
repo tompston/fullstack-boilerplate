@@ -19,5 +19,5 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY --from=build-stage /frontend/dist /usr/share/nginx/html
 
 # copy the defined nginx file to the appropriate directory
-COPY ./.nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./nginx.conf /etc/nginx/nginx.conf
 CMD ["nginx", "-g", "daemon off;"]
